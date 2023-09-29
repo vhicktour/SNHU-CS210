@@ -1,0 +1,47 @@
+START
+
+CLASS Investment
+    PRIVATE:
+        double principalAmount
+        double annualInterestRate
+        int numberOfYears
+        double compoundInterest
+
+    PUBLIC:
+        CONSTRUCTOR Investment(double principal, double rate, int years)
+            SET principalAmount = principal
+            SET annualInterestRate = rate
+            SET numberOfYears = years
+
+        FUNCTION calculateCompoundInterest()
+            compoundInterest = principalAmount * (1 + annualInterestRate/100)^numberOfYears
+            RETURN compoundInterest
+
+        FUNCTION displayInvestmentDetails()
+            PRINT "Principal Amount: " + principalAmount
+            PRINT "Annual Interest Rate: " + annualInterestRate + "%"
+            PRINT "Number of Years: " + numberOfYears
+            PRINT "Compound Interest: " + calculateCompoundInterest()
+
+END CLASS
+
+MAIN FUNCTION
+
+    PRINT "Welcome to Airgead Banking Investment App"
+
+    PROMPT "Enter the principal amount: "
+    INPUT principal
+
+    PROMPT "Enter the annual interest rate (in percentage): "
+    INPUT rate
+
+    PROMPT "Enter the number of years: "
+    INPUT years
+
+    CREATE Investment object with principal, rate, and years
+
+    CALL object's displayInvestmentDetails() function
+
+END MAIN FUNCTION
+
+END
